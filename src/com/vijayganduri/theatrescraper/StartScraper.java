@@ -22,7 +22,7 @@ public class StartScraper {
 
 	private static final String URL = "http://movies.sulekha.com/movie-theaters";
 
-	private static final int LAST_PAGE_NO = 350;
+	private static final int LAST_PAGE_NO = 450;//TODO make this dynamic
 
 	private static final String START_TAG = "<ul class=\"twocol theatrelistli floatbugfix\">";
 	private static final String END_TAG = "</ul><br clear=\"all\"><br><div id=\"page_navi\">";

@@ -11,6 +11,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 public class ReadWriteExcelFile {
 
+	private static final String DIRECTORY_NAME = "out" ;
 	private static final String FILE_NAME = "TheatresList.xls" ;
 
 	private static final String WORKSHEET_TITLE = "All Theatres";
@@ -31,7 +32,16 @@ public class ReadWriteExcelFile {
 			HSSFWorkbook workbook = null;
 			HSSFSheet worksheet = null;
 
-			File file = new File("out", FILE_NAME);
+			File dir = new File(DIRECTORY_NAME);
+			
+			if(!dir.exists()){
+				boolean created = dir.mkdir();
+				if(!created){
+					throw new Exception("Could not create out folder");
+				}
+			}
+			
+			File file = new File(DIRECTORY_NAME, FILE_NAME);
 
 			if(file.exists()){
 				FileInputStream fileInputStream = new FileInputStream(file);				
@@ -73,7 +83,16 @@ public class ReadWriteExcelFile {
 	}
 
 	protected int getLastSavedPosition(){
-		File file = new File("out", FILE_NAME);
+		File dir = new File(DIRECTORY_NAME);
+		
+		if(!dir.exists()){
+			boolean created = dir.mkdir();
+			if(!created){
+				return 0;
+			}
+		}
+		
+		File file = new File(DIRECTORY_NAME, FILE_NAME);
 
 		if(file.exists()){
 			try {
