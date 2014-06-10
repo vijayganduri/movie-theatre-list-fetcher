@@ -2,7 +2,6 @@
 # Java class files
 *.class
 
-.classpath
 .settings
 
 # Generated files
